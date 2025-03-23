@@ -65,7 +65,7 @@ export class OnlineDDLChecker {
 
           try {
             // console.log(`ALGORITHM=${algorithm}, LOCK=${lock} 테스트 중`);
-            console.log(`실행할 DDL: ${finalDDL}`);
+            // console.log(`실행할 DDL: ${finalDDL}`);
             await this.mysqlRepo.query(finalDDL);
 
             return {
