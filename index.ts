@@ -9,6 +9,11 @@ import {
 export default async function main() {
   console.log("\n\n\n");
 
+  const ddlQuery = process.argv[2];
+  if (!ddlQuery) {
+    throw new Error("Input DDL Query Plz");
+  }
+
   const configReader = ConfigReaderFactory.create("json");
 
   const config = await configReader.readConfig();
@@ -16,8 +21,6 @@ export default async function main() {
   const connection = await createConnection({
     ...config,
   });
-
-  const ddlQuery = "ALTER TABLE user ADD COLUMN name VARCHAR(10)";
 
   console.log(`Query: ${ddlQuery}`);
 
@@ -44,8 +47,7 @@ export default async function main() {
     console.log(`Reason: ${err instanceof Error ? err.message : err}`);
   } finally {
     await connection.end();
-    process.exit();
   }
 }
 
-main();
+main().finally(() => process.exit());
