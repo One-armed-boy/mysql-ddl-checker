@@ -1,7 +1,7 @@
 {
   "name": "mysql-ddl-checker",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -9,16 +9,23 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "author": {
+    "email": "fanatic5500@gmail.com",
+    "name": "One-armed-boy"
+  },
   "repository": {
     "type": "git",
-    "url" : "https://github.com/One-armed-boy/mysql-ddl-checker"
+    "url": "https://github.com/One-armed-boy/mysql-ddl-checker"
   },
   "license": "ISC",
-  "description": "",
+  "description": "Check your mysql online DDL algorithm and lock",
+  "keywords": [
+    "mysql",
+    "OnlineDDL"
+  ],
   "devDependencies": {
     "@swc/core": "^1.11.9",
     "@swc/helpers": "^0.5.15",
