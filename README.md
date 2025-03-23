@@ -13,7 +13,7 @@ This tool analyzes MySQL DDL (Data Definition Language) queries to determine the
 Install the package using npm:
 
 ```
-npm install mysql-ddl-checker
+npm i -D mysql-ddl-checker
 ```
 
 ## Configuration
