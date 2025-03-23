@@ -1,1 +1,4 @@
 /node_modules
+/dist
+/docker-compose.yml
+/online-ddl-check.json
