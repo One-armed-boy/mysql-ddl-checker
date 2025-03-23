@@ -83,7 +83,7 @@ export class OnlineDDLChecker {
         }
 
         throw new Error(
-          "이 DDL 문에 대해 유효한 알고리즘과 락 조합을 찾을 수 없습니다"
+          "Cannot find Online DDL algorithm, lock for your query"
         );
       }
     );
