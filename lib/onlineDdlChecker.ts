@@ -21,7 +21,11 @@ export class OnlineDDLChecker {
 
     // console.log(`Mysql version: ${mysqlVersion}`);
 
-    const targetTableName = this.ddlParser.getTableName(ddlQuery);
+    const targetTableName = this.ddlParser.findTableName(ddlQuery);
+
+    if (targetTableName === null) {
+      throw new Error("Cannot find table name into ddl");
+    }
 
     const targetTableEngine = await this.mysqlRepo.getTableEngine(
       targetTableName
@@ -53,11 +57,15 @@ export class OnlineDDLChecker {
             continue;
           }
 
-          const finalDDL = `${modifiedDDL}, ALGORITHM=${algorithm}, LOCK=${lock};`;
+          const finalDDL = [
+            modifiedDDL,
+            `ALGORITHM=${algorithm}`,
+            `LOCK=${lock};`,
+          ].join(this.ddlParser.isIndexRelatedDDL(modifiedDDL) ? " " : ", ");
 
           try {
             // console.log(`ALGORITHM=${algorithm}, LOCK=${lock} 테스트 중`);
-            // console.log(`실행할 DDL: ${finalDDL}`);
+            console.log(`실행할 DDL: ${finalDDL}`);
             await this.mysqlRepo.query(finalDDL);
 
             return {
