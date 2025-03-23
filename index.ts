@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createConnection } from "mysql2/promise";
 import {
   ConfigReaderFactory,
@@ -6,7 +8,7 @@ import {
   OnlineDDLChecker,
 } from "./lib";
 
-export default async function main() {
+async function main() {
   console.log("\n\n\n");
 
   const ddlQuery = process.argv[2];
