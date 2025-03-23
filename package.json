@@ -1,6 +1,7 @@
 {
   "name": "mysql-ddl-checker",
-  "version": "1.0.2",
+  "private": false,
+  "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -11,10 +12,11 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "files": [
-    "dist"
-  ],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/One-armed-boy/mysql-ddl-checker"
+  },
   "license": "ISC",
   "description": "",
   "devDependencies": {

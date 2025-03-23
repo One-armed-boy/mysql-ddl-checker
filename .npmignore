@@ -1,5 +1,6 @@
 /node_modules
-/dist
+/lib
+/tsconfig.json
 /docker-compose.yml
 /online-ddl-check.json
 .DS_Store
