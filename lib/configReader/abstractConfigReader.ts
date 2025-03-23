@@ -8,7 +8,7 @@ export abstract class ConfigReader {
     config: unknown
   ): asserts config is MysqlConnectionOption {
     if (!this.isConfigRecord(config)) {
-      throw new Error();
+      throw new Error(`Config is not Record (config: ${config})`);
     }
 
     this.checkConfigElement(config, "user", "string");
