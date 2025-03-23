@@ -1,6 +1,9 @@
 # Mysql Online DDL Checker
 
-## 1. Config
+## 1. Install
+`npm i mysql-ddl-checker`
+
+## 2. Config
 
 - Create `online-ddl-check.json` in your project
   ```json
@@ -13,3 +16,6 @@
     "database": "main"
   }
   ```
+
+## 3. Execute
+`npx mysql-ddl-checker "{DDL}"`
