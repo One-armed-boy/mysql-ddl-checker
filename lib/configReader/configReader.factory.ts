@@ -1,6 +1,6 @@
 import path from "path";
 import { ConfigReader } from "./abstractConfigReader";
-import { ConfigFileReaderImpl } from "./configFileReader";
+import { FileConfigReaderImpl } from "./fileConfigReader";
 import { ConfigInputStrategy } from "./type";
 
 export class ConfigReaderFactory {
@@ -8,7 +8,7 @@ export class ConfigReaderFactory {
     switch (strategy) {
       case "json":
         const configPath = path.join(process.cwd(), "online-ddl-check.json");
-        return new ConfigFileReaderImpl(configPath);
+        return new FileConfigReaderImpl(configPath);
       default:
         throw new Error("Not implemented config input strategy.");
     }

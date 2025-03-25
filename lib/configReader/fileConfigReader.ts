@@ -2,7 +2,7 @@ import { readFile } from "fs/promises";
 import { MysqlConnectionOption } from "../type";
 import { ConfigReader } from "./abstractConfigReader";
 
-export class ConfigFileReaderImpl extends ConfigReader {
+export class FileConfigReaderImpl extends ConfigReader {
   constructor(private readonly configPath: string) {
     super();
   }
